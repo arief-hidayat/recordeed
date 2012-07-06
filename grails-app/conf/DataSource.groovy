@@ -26,7 +26,8 @@ environments {
     production {
         dataSource {
             dbCreate = "update"
-            url = "jdbc:h2:prodDb;MVCC=TRUE"
+//            url = "jdbc:h2:prodDb;MVCC=TRUE"
+            driverClassName = "com.mysql.jdbc.Driver"
             pooled = true
             properties {
                maxActive = -1

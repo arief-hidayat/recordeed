@@ -11,6 +11,8 @@ class User {
 	boolean accountLocked
 	boolean passwordExpired
 
+    static hasMany = [oAuthIDs: OAuthID]
+
     static User retrieveOrCreateDefaultUser(String username, String roleName) {
         User user = User.findByUsername(username)
         if(user) return user

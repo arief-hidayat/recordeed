@@ -112,6 +112,9 @@
 			<p>
 				<input type='submit' id="submit" value='${message(code: "springSecurity.login.button")}'/>
 			</p>
+            <p>
+                <oauth:connect provider="twitter" id="twitter-connect-link">Twitter</oauth:connect>
+            </p>
 		</form>
 	</div>
 </div>

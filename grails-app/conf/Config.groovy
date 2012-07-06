@@ -1,3 +1,5 @@
+import org.scribe.builder.api.TwitterApi
+
 // locations to search for config files that get merged into the main config
 // config files can either be Java properties files or ConfigSlurper scripts
 
@@ -123,3 +125,32 @@ grails.gorm.default.mapping = {
 	"user-type" type: org.joda.time.contrib.hibernate.PersistentPeriod, class: org.joda.time.Period
 }
 grails.gorm.default.failOnError = true
+
+oauth {
+    providers {
+        twitter {
+            api = TwitterApi
+            key = 'PhK5TyP2tW3966lT6TDESQ'
+            secret = 'Ez0ZpLCCakohvgivl65yzvLEmVbjWG9ZcW99S7yKUHI'
+//            successUri = '/oauth/success?provider=twitter'
+//            successUri = 'http://127.0.0.1:8080/recordeed/'
+            successUri = "http://127.0.0.1:8080/recordeed/oauth/success?provider=twitter"
+            failureUri = "/unauthorized"
+            callback = "http://127.0.0.1:8080/recordeed/oauth/twitter/callback"
+        }
+
+//        facebook {
+//            api = FacebookApi
+//            key = 'other-key'
+//            secret = 'other-secret'
+//        }
+
+    }
+//    registration.askToLinkOrCreateAccountUri = ""
+    debug = true
+    connectTimeout = 5000
+    receiveTimeout = 5000
+}
+
+// Added by the Spring Security OAuth plugin:
+grails.plugins.springsecurity.oauth.domainClass = 'com.recordeed.account.OAuthID'

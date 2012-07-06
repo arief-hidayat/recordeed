@@ -5,6 +5,8 @@ grails.project.test.reports.dir = "target/test-reports"
 grails.project.target.level = 1.7
 grails.project.source.level = 1.7
 //grails.project.war.file = "target/${appName}-${appVersion}.war"
+//Will remove the OSGi headers from the WAR file which is what is confusing JBoss 7
+grails.project.war.osgi.headers=false
 
 grails.project.dependency.resolution = {
     // inherit Grails' default dependencies
@@ -33,7 +35,11 @@ grails.project.dependency.resolution = {
     dependencies {
         // specify dependencies here under either 'build', 'compile', 'runtime', 'test' or 'provided' scopes eg.
 
-        // runtime 'mysql:mysql-connector-java:5.1.16'
+        runtime 'mysql:mysql-connector-java:5.1.20'
+
+        // JBoss bug
+//        runtime 'org.springframework.social:spring-social-facebook-web:1.0.1.RELEASE'
+
         compile("joda-time:joda-time-hibernate:1.3") {
             excludes "joda-time", "hibernate"
         }
@@ -43,6 +49,7 @@ grails.project.dependency.resolution = {
         runtime ":hibernate:$grailsVersion"
         runtime ":jquery:1.7.1"
         runtime ":resources:1.1.6"
+        compile ':cloud-foundry:1.2.2'
 //        compile ":angular-scaffolding:1.0-SNAPSHOT"
 
 
@@ -52,11 +59,18 @@ grails.project.dependency.resolution = {
         //runtime ":yui-minify-resources:0.1.4"
         compile ":joda-time:1.4"
         compile ":spring-security-core:1.2.7.3"
-        compile ":facebook-graph:0.14"
+        compile ":oauth:2.0.1"
+        compile ":spring-security-oauth:2.0.1.1"
+//        compile ":facebook-graph:0.14"
         compile ":taggable:1.0.1"
         test ":spock:0.6"
-        test ":cucumber:0.5.0"
+        test ":cucumber:0.6.0"
 
         build ":tomcat:$grailsVersion"
     }
 }
+// please set the following in your $HOME/.grails/settings.groovy
+//grails.plugin.cloudfoundry.username = 'your.email@server.com'
+//grails.plugin.cloudfoundry.password = 's3kr3t'
+
+// domain : recordeed.cloudfoundry.me. configuration token: will-some-with

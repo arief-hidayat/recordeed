@@ -23,6 +23,9 @@
 		<div class="footer" role="contentinfo"></div>
 		<div id="spinner" class="spinner" style="display:none;"><g:message code="spinner.alt" default="Loading&hellip;"/></div>
 		<g:javascript library="application"/>
+    <iframe src="https://www.facebook.com/plugins/like.php?href=www.recordeed.com"
+            scrolling="no" frameborder="0"
+            style="border:none; width:450px; height:80px"></iframe>
         <r:layoutResources />
 	</body>
 </html>

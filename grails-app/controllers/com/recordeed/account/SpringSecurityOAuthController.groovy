@@ -54,6 +54,10 @@ class SpringSecurityOAuthController {
         }
 
         def sessionKey = oauthService.findSessionKeyForAccessToken(params.provider)
+
+        while( session.attributeNames.hasMoreElements() ) {
+            println "${session.attributeNames.nextElement()}";
+        }
         println "sessionKey ${sessionKey}"
         if (!session[sessionKey]) {
             renderError 500, "No OAuth token in the session for provider '${params.provider}'!"
@@ -64,7 +68,7 @@ class SpringSecurityOAuthController {
         OAuthToken oAuthToken = createAuthToken(params.provider, session[sessionKey])
 
         if (oAuthToken.principal instanceof GrailsUser) {
-            println "goto authenticateAndRedirect"
+            println "goto authenticateAndRedirect. defaultTargetUrl ${defaultTargetUrl}"
             authenticateAndRedirect(oAuthToken, defaultTargetUrl)
         } else {
             // This OAuth account hasn't been registered against an internal
@@ -75,7 +79,7 @@ class SpringSecurityOAuthController {
             def redirectUrl = SpringSecurityUtils.securityConfig.oauth.registration.askToLinkOrCreateAccountUri
             assert redirectUrl, "grails.plugins.springsecurity.oauth.registration.askToLinkOrCreateAccountUri" +
                     " configuration option must be set!"
-            log.debug "Redirecting to askToLinkOrCreateAccountUri: ${redirectUrl}"
+            println "Redirecting to askToLinkOrCreateAccountUri: ${redirectUrl}"
             redirect(redirectUrl instanceof Map ? redirectUrl : [uri: redirectUrl])
         }
     }

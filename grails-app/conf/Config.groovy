@@ -1,4 +1,5 @@
 import org.scribe.builder.api.TwitterApi
+import org.scribe.builder.api.FacebookApi
 
 // locations to search for config files that get merged into the main config
 // config files can either be Java properties files or ConfigSlurper scripts
@@ -132,18 +133,19 @@ oauth {
             api = TwitterApi
             key = 'PhK5TyP2tW3966lT6TDESQ'
             secret = 'Ez0ZpLCCakohvgivl65yzvLEmVbjWG9ZcW99S7yKUHI'
-//            successUri = '/oauth/success?provider=twitter'
-//            successUri = 'http://127.0.0.1:8080/recordeed/'
-            successUri = "http://127.0.0.1:8080/recordeed/oauth/success?provider=twitter"
+            successUri = "http://recordeed.com/oauth/success?provider=twitter"
             failureUri = "/unauthorized"
-            callback = "http://127.0.0.1:8080/recordeed/oauth/twitter/callback"
+            callback = "http://www.recordeed.com/oauth/twitter/callback"
         }
 
-//        facebook {
-//            api = FacebookApi
-//            key = 'other-key'
-//            secret = 'other-secret'
-//        }
+        facebook {
+            api = FacebookApi
+            key = '382536498462959'
+            secret = '4ae04c3398f877b826656dffd817769e'
+            successUri = "http://www.recordeed.com/oauth/facebook/success"
+            failureUri = "/unauthorized"
+            callback = "http://www.recordeed.com/oauth/facebook/callback"
+        }
 
     }
 //    registration.askToLinkOrCreateAccountUri = ""
@@ -154,3 +156,5 @@ oauth {
 
 // Added by the Spring Security OAuth plugin:
 grails.plugins.springsecurity.oauth.domainClass = 'com.recordeed.account.OAuthID'
+
+grails.serverURL = "http://www.recordeed.com"

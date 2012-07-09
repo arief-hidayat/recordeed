@@ -11,5 +11,6 @@ class UserService {
         if(!role.id) role.save(flush : true)
         User user = new User(username : username, password : password).save(flush:  true)
         UserRole.create(user, role, true)
+        user
     }
 }

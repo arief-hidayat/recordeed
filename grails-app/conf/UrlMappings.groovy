@@ -1,11 +1,13 @@
 class UrlMappings {
 
 	static mappings = {
-        "/oauth/success"(controller: "login", action: "full")
+//        "/oauth/success"(controller: "login", action: "full")
         "/unauthorized"(controller: "login", action: "denied")
-//        "/oauth/$provider/callback/"(controller: "oauth", action: "callback")
-//        "/linkOrCreateAcct"(controller: "springSecurityOAuthToken", action: "askToLinkOrCreateAccount")
-        "/oauth/$provider/callback/"(controller: "springSecurityOAuth", action: "onSuccess")
+//        "/oauth/$provider/callback/"(controller: "springSecurityOAuth", action: "onSuccess")
+
+
+        "/oauth/$provider/success/"(controller: "springSecurityOAuth", action: "onSuccess")
+        "/oauth/$provider/callback/"(controller: "oauth", action: "callback")
 
 		"/$controller/$action?/$id?"{
 			constraints {

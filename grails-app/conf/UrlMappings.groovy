@@ -8,6 +8,7 @@ class UrlMappings {
 
         "/oauth/$provider/success/"(controller: "springSecurityOAuth", action: "onSuccess")
         "/oauth/$provider/callback/"(controller: "oauth", action: "callback")
+        "/oauth/$provider/askToLinkOrCreateAccount" (controller: "oauth", action:"askToLinkOrCreateAccount")
 
 		"/$controller/$action?/$id?"{
 			constraints {

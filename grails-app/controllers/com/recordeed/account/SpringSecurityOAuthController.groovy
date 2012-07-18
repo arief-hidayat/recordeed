@@ -55,10 +55,10 @@ class SpringSecurityOAuthController {
 
         def sessionKey = oauthService.findSessionKeyForAccessToken(params.provider)
 
-        while( session.attributeNames.hasMoreElements() ) {
-            println "${session.attributeNames.nextElement()}";
-        }
-        println "sessionKey ${sessionKey}"
+//        while( session.attributeNames.hasMoreElements() ) {
+//            println "${session.attributeNames.nextElement()}";
+//        }
+        println "sessionKey ${sessionKey}: ${session[sessionKey]}"
         if (!session[sessionKey]) {
             renderError 500, "No OAuth token in the session for provider '${params.provider}'!"
             return

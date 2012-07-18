@@ -113,8 +113,9 @@
 				<input type='submit' id="submit" value='${message(code: "springSecurity.login.button")}'/>
 			</p>
             <p>
-                %{--<oauth:connect provider="twitter" id="twitter-connect-link">Twitter</oauth:connect> --}%
-                <a href="/oauth/twitter/authenticate" provider="twitter">Twitter</a>
+                <oauth:connect provider="twitter" id="twitter-connect-link">Twitter</oauth:connect>
+                <oauth:connect provider="facebook" id="facebook-connect-link">Facebook</oauth:connect>
+                %{--<a href="/oauth/twitter/authenticate" provider="twitter">Twitter</a>--}%
             </p>
 		</form>
 	</div>

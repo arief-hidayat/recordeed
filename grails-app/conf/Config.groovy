@@ -131,20 +131,20 @@ oauth {
     providers {
         twitter {
             api = TwitterApi
-            successUri = "http://recordeed.com/oauth/success?provider=twitter"
+            successUri = "http://127.0.0.1:8080/recordeed/oauth/twitter/success"
             failureUri = "/unauthorized"
-            callback = "http://www.recordeed.com/oauth/twitter/callback"
+            callback = "http://127.0.0.1:8080/recordeed/oauth/twitter/callback"
         }
 
         facebook {
             api = FacebookApi
-            successUri = "http://www.recordeed.com/oauth/facebook/success"
+            successUri = "http://localhost:8080/recordeed/oauth/facebook/success"
             failureUri = "/unauthorized"
-            callback = "http://www.recordeed.com/oauth/facebook/callback"
+            callback = "http://localhost:8080/recordeed/oauth/facebook/callback"
         }
 
     }
-//    registration.askToLinkOrCreateAccountUri = ""
+    registration.askToLinkOrCreateAccountUri = "askToLinkOrCreateAccount"
     debug = true
     connectTimeout = 5000
     receiveTimeout = 5000
@@ -153,4 +153,4 @@ oauth {
 // Added by the Spring Security OAuth plugin:
 grails.plugins.springsecurity.oauth.domainClass = 'com.recordeed.account.OAuthID'
 
-grails.serverURL = "http://www.recordeed.com"
+//grails.serverURL = "www.recordeed.com"

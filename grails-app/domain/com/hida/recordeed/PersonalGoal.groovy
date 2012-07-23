@@ -24,15 +24,19 @@ class PersonalGoal {
         actualEnd nullable : true
     }
 
-    def selectDeedForPersonalGoal(Deed deed, def params) {
-        params.flush = true
-        SelectedDeed selDeed = SelectedDeed.create(this, deed, params)
-    }
+//    def selectDeedForPersonalGoal(Deed deed, def params) {
+//        params.flush = true
+//        SelectedDeed selDeed = SelectedDeed.create(this, deed, params)
+//    }
 
     def SelectedDeedCriteria prepareDeedCriteria(DeedCriteria criteria) {
         new SelectedDeedCriteria(personalGoal: this, deedCriteria: criteria)
     }
+    def selectDeedForPersonalGoal(def theDeed, def params = [:]) {
+        Deed deed = theDeed instanceof Deed ? theDeed : Deed.findByName(theDeed)
+        if(deed) {
+            SelectedDeed.create(this, deed, params)
+        } else { println "deed ${theDeed} not found"}
 
-
-
+    }
 }

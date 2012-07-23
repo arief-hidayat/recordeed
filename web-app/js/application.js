@@ -1,9 +1,10 @@
-if (typeof jQuery !== 'undefined') {
-	(function($) {
-		$('#spinner').ajaxStart(function() {
-			$(this).fadeIn();
-		}).ajaxStop(function() {
-			$(this).fadeOut();
-		});
-	})(jQuery);
-}
+/* 
+	jQuery Mobile Boilerplate
+	application.js
+*/
+$(document).on("pageinit", function(event){
+	// custom code goes here
+
+
+
+});

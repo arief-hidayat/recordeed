@@ -1,5 +1,6 @@
 import org.scribe.builder.api.TwitterApi
 import org.scribe.builder.api.FacebookApi
+import com.hida.recordeed.ListOfValue
 
 // locations to search for config files that get merged into the main config
 // config files can either be Java properties files or ConfigSlurper scripts
@@ -12,6 +13,8 @@ import org.scribe.builder.api.FacebookApi
 // if (System.properties["${appName}.config.location"]) {
 //    grails.config.locations << "file:" + System.properties["${appName}.config.location"]
 // }
+
+grails.config.locations = ["file:${userHome}/.grails/social-network-config.groovy"]
 
 
 grails.project.groupId = appName // change this to alter the default package name and Maven publishing destination
@@ -151,3 +154,78 @@ oauth {
 grails.plugins.springsecurity.oauth.domainClass = 'com.recordeed.account.OAuthID'
 
 //grails.serverURL = "www.recordeed.com"
+
+converter.dateFormat = "dd/MM/yyyy"
+app.lunarCalendars = [
+        2012 : [
+                "Ramadhan" : [ startDate : "21/07/2012", endDate : "18/08/2012"]
+        ]
+]
+
+app.defaultDeeds = [
+        [name: "Maghrib", description : "Solat Maghrib",
+                referenceTime: ListOfValue.MAGRIB, specificRepeatingDay: ListOfValue.DAILY, defaultCriteria : ["KetepatanWaktu", "Jamaah", "Rawatib", "KualitasSalat", "Dzikr&Doa"]],
+        [name: "Isya", description : "Solat Isya",
+                referenceTime: ListOfValue.ISYA, specificRepeatingDay: ListOfValue.DAILY, defaultCriteria : ["KetepatanWaktu", "Jamaah", "Rawatib", "KualitasSalat", "Dzikr&Doa"]],
+        [name: "Subuh", description : "Solat Subuh",
+                referenceTime: ListOfValue.SUBH, specificRepeatingDay: ListOfValue.DAILY, defaultCriteria : ["KetepatanWaktu", "Jamaah", "Rawatib", "KualitasSalat", "Dzikr&Doa"]],
+        [name: "Dzuhur", description : "Solat Dzuhur",
+                referenceTime: ListOfValue.DZUHR, specificRepeatingDay: ListOfValue.DAILY, defaultCriteria : ["KetepatanWaktu", "Jamaah", "Rawatib", "KualitasSalat", "Dzikr&Doa"]],
+        [name: "Ashar", description : "Solat Ashar",
+                referenceTime: ListOfValue.ASHR, specificRepeatingDay: ListOfValue.DAILY, defaultCriteria : ["KetepatanWaktu", "Jamaah", "Rawatib", "KualitasSalat", "Dzikr&Doa"]],
+        [name :"PuasaRamadhan", description: "Puasa wajib di Bulan Ramadhan", defaultCriteria: ["KualitasPuasa"]],
+        [name : "SalatMalam", description: "Salat Malam (Qiyamul Layl)",
+                referenceTime: ListOfValue.ISYA, specificRepeatingDay: ListOfValue.DAILY, allowOverride: true, defaultCriteria: ["KualitasSalat"]],
+        [name : "SalatDhuha", description: "Salat Dhuha", referenceTime: ListOfValue.SUBH,
+                specificRepeatingDay: ListOfValue.DAILY, allowOverride: true, defaultCriteria: ["KualitasSalat"]],
+        [name : "PuasaSenin", description: "Puasa Senin Kamis (Hari Senin)",
+                referenceTime: ListOfValue.SUBH, specificRepeatingDay: ListOfValue.EVERY_MONDAY, defaultCriteria: ["KualitasPuasa"]],
+        [name : "PuasaKamis", description: "Puasa Senin Kamis (Hari Kamis)",
+                referenceTime: ListOfValue.SUBH, specificRepeatingDay: ListOfValue.EVERY_MONDAY, defaultCriteria: ["KualitasPuasa"]],
+        [name :"PuasaDaud", description : "Puasa Daud. Sehari puasa, sehari berbuka",
+                referenceTime: ListOfValue.SUBH, specificRepeatingDay: ListOfValue.ALTERNATE_DAY, defaultCriteria: ["KualitasPuasa"]],
+//        [name : "Shadaqah", description : "Shadaqah yg bisa direpresentasikan dengan mata uang/alat tukar lainnya.",
+//                specificRepeatingDay: ListOfValue.DAILY, allowOverride: true],
+        [name : "BacaQuran", description : "Mengaji Al Qur'an", specificRepeatingDay: ListOfValue.DAILY, allowOverride: true, defaultCriteria: ["KriteriaUmum"]],
+        [name : "TadaburQuran", description : "Mentadaburi Al Qur'an", specificRepeatingDay: ListOfValue.DAILY, allowOverride: true, defaultCriteria: ["KriteriaUmum"]],
+        [name :"HapalQuran", description: "Menghapal ayat (dan terjemah) Al Qur'an", specificRepeatingDay: ListOfValue.DAILY, allowOverride: true, defaultCriteria: ["KriteriaUmum"]],
+        [name : "Olahraga", description : "Latihan fisik (Olahraga)", specificRepeatingDay: ListOfValue.DAILY, allowOverride: true, defaultCriteria: ["KriteriaUmum"]],
+        [name : "AmalanLain", description : "Amalan Lain", specificRepeatingDay: ListOfValue.DAILY, allowOverride: true, defaultCriteria: ["KriteriaUmum"]]
+]
+
+app.defaultDeedCriteria = [
+        "KetepatanWaktu" : [ description : "Ketepatan Waktu", rating : [
+                0 : "Tidak mengerjakan pada waktunya",
+                1 : "Dikerjakan 15 menit akhir waktu",
+                2 : "Dikerjakan antara 15 menit setelah adzan hingga 15 menit sblm akhir waktu" ,
+                3 : "Dikerjakan paling lambat 15 menit setelah adzan"
+        ]],
+        "Jamaah": [description : "Berjamaah", rating: [
+                0 : "Tidak berjamaah",
+                1 : "Berjamaah"
+        ]], "Rawatib" : [description : "Salat sunnah rawatib", rating: [
+                0 : "Tidak dikerjakan",
+                1 : "Dikerjakan"
+        ]], "KualitasSalat" : [description: "Kualitas salat (pelaksanaan rukun salat & kekhusyukan)", rating: [
+                0 : "Ada rukun yang dilanggar (misalnya tidak tuma'ninah).",
+                1 : "Rukun sempurna tetapi tidak khusyuk (parah)",
+                2 : "Rukun sempurna tetapi sedikit tidak khusyuk",
+                3 : "Rukun sempurna dan kekhusyukan memenuhi standar pribadi"
+        ]], "Dzikr&Doa" : [description : "Dzikir dan doa setelah salat", rating: [
+                0 : "Tidak dikerjakan",
+                1 : "Dikerjakan"
+        ]], "KualitasPuasa" : [description: "Kualitas puasa (pelaksanaan rukun puasa)", rating: [
+                0 : "Ada rukun & syarat sah yang dilanggar.",
+                1 : "Rukun sempurna dan memenuhi standar pribadi"
+        ]],  "KualitasPelaksanaan" : [description: "Kualitas pelaksanaan", rating: [
+                0 : "Tidak memenuhi target",
+                1 : "Memenuhi target"
+        ]],  "KriteriaUmum" : [description: "Pelaksanaan", rating: [
+                0 : "Tidak dikerjakan",
+                1 : "Dikerjakan"
+        ]],
+]
+
+app.defaultSelectedDeed = [
+        "Ramadhan-2012" : []
+]

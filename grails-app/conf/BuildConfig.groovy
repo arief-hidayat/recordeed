@@ -65,6 +65,8 @@ grails.project.dependency.resolution = {
         compile ":taggable:1.0.1"
         test ":spock:0.6"
         test ":cucumber:0.6.0"
+        compile ":jmesa:2.0.4-SNAPSHOT-0.1"
+
 
         build ":tomcat:$grailsVersion"
     }

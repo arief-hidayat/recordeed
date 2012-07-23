@@ -8,6 +8,7 @@
           <root url="file://$USER_HOME$/.grails/2.1.0/projects/recordeed/plugins/joda-time-1.4/grails-app/views" relative="/" />
           <root url="file://$USER_HOME$/.grails/2.1.0/projects/recordeed/plugins/taggable-1.0.1/web-app" relative="/" />
           <root url="file://$USER_HOME$/.grails/2.1.0/projects/recordeed/plugins/oauth-2.0.1/web-app" relative="/" />
+          <root url="file://$USER_HOME$/.grails/2.1.0/projects/recordeed/plugins/jmesa-2.0.4-SNAPSHOT-0.1/web-app" relative="/" />
         </webroots>
         <sourceRoots />
       </configuration>
@@ -36,6 +37,9 @@
     </content>
     <content url="file://$USER_HOME$/.grails/2.1.0/projects/recordeed/plugins/hibernate-2.1.0">
       <sourceFolder url="file://$USER_HOME$/.grails/2.1.0/projects/recordeed/plugins/hibernate-2.1.0/grails-app/i18n" isTestSource="false" />
+    </content>
+    <content url="file://$USER_HOME$/.grails/2.1.0/projects/recordeed/plugins/jmesa-2.0.4-SNAPSHOT-0.1">
+      <sourceFolder url="file://$USER_HOME$/.grails/2.1.0/projects/recordeed/plugins/jmesa-2.0.4-SNAPSHOT-0.1/grails-app/taglib" isTestSource="false" />
     </content>
     <content url="file://$USER_HOME$/.grails/2.1.0/projects/recordeed/plugins/joda-time-1.4">
       <sourceFolder url="file://$USER_HOME$/.grails/2.1.0/projects/recordeed/plugins/joda-time-1.4/src/groovy" isTestSource="false" />
@@ -113,9 +117,11 @@
           <root url="jar://$USER_HOME$/.grails/ivy-cache/org.cloudfoundry/cloudfoundry-client-lib/jars/cloudfoundry-client-lib-0.7.2.jar!/" />
           <root url="jar://$USER_HOME$/.grails/ivy-cache/org.cloudfoundry/cloudfoundry-caldecott-lib/jars/cloudfoundry-caldecott-lib-0.1.0.jar!/" />
           <root url="jar://$USER_HOME$/.grails/ivy-cache/mysql/mysql-connector-java/jars/mysql-connector-java-5.1.20.jar!/" />
+          <root url="file://$USER_HOME$/.grails/2.1.0/projects/recordeed/plugins/jmesa-2.0.4-SNAPSHOT-0.1/lib" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
+        <jarDirectory url="file://$USER_HOME$/.grails/2.1.0/projects/recordeed/plugins/jmesa-2.0.4-SNAPSHOT-0.1/lib" recursive="false" />
         <jarDirectory url="file://$USER_HOME$/.grails/2.1.0/projects/recordeed/plugins/joda-time-1.4/lib" recursive="false" />
       </library>
     </orderEntry>

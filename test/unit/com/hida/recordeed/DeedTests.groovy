@@ -95,7 +95,7 @@ class DeedTests {
 
         // qur'an
         // recommendednya daily. tp tiap orang kan bisa beda2. mungkin weekly. How?
-        Deed qiraatQuran = new Deed(name : "Membaca Al Qur'an", description : "Mengaji (dan mengkaji) Al Qur'an",
+        Deed qiraatQuran = new Deed(name : "Membaca Al Qur'an", description : "Mengaji Al Qur'an",
                 specificRepeatingDay: ListOfValue.DAILY, allowOverride: true)
         qiraatQuran.save(flush : true, failOnError: true)
 

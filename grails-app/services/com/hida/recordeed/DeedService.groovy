@@ -53,4 +53,6 @@ class DeedService {
     def findSelectedDeedCriteria(SelectedDeed item) {
         iterateOnSelectedDeedCriteria(item) { list, selCriteria -> list << selCriteria }
     }
+
+
 }

@@ -24,7 +24,7 @@ class BootStrap {
                 it.defaultCriteria.each {criteriaName ->
                     println "   deed criteria ${criteriaName}"
                     def criteriaConfig = ConfigurationHolder.config.app.defaultDeedCriteria[criteriaName]
-                    DeedCriteria crt = DeedCriteria.findByName(criteriaName)
+                    DeedCriteria crt = DeedCriteria.findByDeedAndName(deed, criteriaName)
                     if(crt) {
                         // update?
                     } else {
@@ -35,15 +35,7 @@ class BootStrap {
         }
 
         User test = userService.createUserWithRole("test","test", "ROLE_USER")
-        PersonalGoal myGoal = userService.createPersonalGoal(test, "Ramadhan-2012", null)
-        ["Maghrib", "Isya", "Subuh", "Dzuhur", "Ashar"].each { myGoal.selectDeedForPersonalGoal(it) }
-        myGoal.selectDeedForPersonalGoal("PuasaRamadhan", [specificRepeatingDay : ListOfValue.DAILY])  // override for this milestone (it's daily)
-        myGoal.selectDeedForPersonalGoal("Olahraga", [description : "Berenang", quotaMode : ListOfValue.MONTHLY_QUOTA, minQuota: 2])
-        myGoal.selectDeedForPersonalGoal("SalatMalam", [quotaMode : ListOfValue.WEEKLY_QUOTA, minQuota: 6])
-        myGoal.selectDeedForPersonalGoal("SalatDhuha", [quotaMode : ListOfValue.WEEKLY_QUOTA, minQuota: 3])
-        myGoal.selectDeedForPersonalGoal("BacaQuran")
-        myGoal.selectDeedForPersonalGoal("TadaburQuran", [quotaMode : ListOfValue.WEEKLY_QUOTA, minQuota: 4]) // tiap sesi 2 jam.
-        myGoal.selectDeedForPersonalGoal("HapalQuran", [quotaMode : ListOfValue.WEEKLY_QUOTA, minQuota: 3])  // tiap sesi ` jam
+        userService.setupDeedPackages(test)
 
     }
     def destroy = {

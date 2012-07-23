@@ -126,6 +126,17 @@ class SpringSecurityOAuthController {
         render view: 'askToLinkOrCreateAccount', model: [linkAccountCommand: command]
         return
     }
+    def userService
+    /**
+     * this might change later.
+     */
+    protected User createUserAccount(def command ) {
+//        new User(username: command.username, password: command.password1, enabled: true)
+        User user = userService.createUserWithRole(command.username, command.password, "ROLE_USER")
+        // currently we just populate everything by default.
+        userService.setupDeedPackages(user)
+        user
+    }
 
     def createAccount = { OAuthCreateAccountCommand command ->
         OAuthToken oAuthToken = session[SPRING_SECURITY_OAUTH_TOKEN]
@@ -136,7 +147,7 @@ class SpringSecurityOAuthController {
                 def config = SpringSecurityUtils.securityConfig
 
                 boolean created = command.validate() && User.withTransaction { status ->
-                    User user = new User(username: command.username, password: command.password1, enabled: true)
+                    User user = createUserAccount(command)
                     user.addToOAuthIDs(provider: oAuthToken.providerName, accessToken: oAuthToken.socialId, user: user)
 
                     // updateUser(user, oAuthToken)
@@ -146,9 +157,10 @@ class SpringSecurityOAuthController {
                         return false
                     }
 
-                    for (roleName in config.oauth.registration.roleNames) {
-                        UserRole.create user, Role.findByAuthority(roleName)
-                    }
+                    //  Arief commented this to avoid duplicate role.
+//                    for (roleName in config.oauth.registration.roleNames) {
+//                        UserRole.create user, Role.findByAuthority(roleName)
+//                    }
 
                     oAuthToken = updateOAuthToken(oAuthToken, user)
                     return true

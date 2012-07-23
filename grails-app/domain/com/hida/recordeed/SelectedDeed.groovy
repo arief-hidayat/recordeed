@@ -61,7 +61,7 @@ class SelectedDeed implements Serializable {
                 [personalGoalId: personalGoalId, deedId: deedId]
     }
 
-    static SelectedDeed create(PersonalGoal personalGoal, Deed deed, def params) {
+    static SelectedDeed create(PersonalGoal personalGoal, Deed deed, def params = [:]) {
         params.personalGoal = personalGoal
         params.deed = deed
         if(!params.fromDate) params.fromDate = (personalGoal.actualStart ?: personalGoal.milestone.startDate)

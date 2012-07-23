@@ -132,7 +132,7 @@ class SpringSecurityOAuthController {
      */
     protected User createUserAccount(def command ) {
 //        new User(username: command.username, password: command.password1, enabled: true)
-        User user = userService.createUserWithRole(command.username, command.password, "ROLE_USER")
+        User user = userService.createUserWithRole(command.username, command.password1, "ROLE_USER")
         // currently we just populate everything by default.
         userService.setupDeedPackages(user)
         user

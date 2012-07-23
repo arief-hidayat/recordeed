@@ -2,12 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a539f2f4-1b4f-4d25-b71d-ff0400711962" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/conf/BootStrap.groovy" afterPath="$PROJECT_DIR$/grails-app/conf/BootStrap.groovy" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/controllers/com/recordeed/account/SpringSecurityOAuthController.groovy" afterPath="$PROJECT_DIR$/grails-app/controllers/com/recordeed/account/SpringSecurityOAuthController.groovy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/domain/com/hida/recordeed/SelectedDeed.groovy" afterPath="$PROJECT_DIR$/grails-app/domain/com/hida/recordeed/SelectedDeed.groovy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/services/com/hida/recordeed/UserService.groovy" afterPath="$PROJECT_DIR$/grails-app/services/com/hida/recordeed/UserService.groovy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/views/springSecurityOAuth/askToLinkOrCreateAccount.gsp" afterPath="$PROJECT_DIR$/grails-app/views/springSecurityOAuth/askToLinkOrCreateAccount.gsp" />
     </list>
     <ignored path="recordeed.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -123,12 +119,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BootStrap.groovy" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="BootStrap.groovy" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/grails-app/conf/BootStrap.groovy">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="30" column="64" selection-start="1397" selection-end="1397" vertical-scroll-proportion="0.8093525">
+            <state line="32" column="33" selection-start="1502" selection-end="1502" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="e#0#30#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SpringSecurityOAuthController.groovy" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/grails-app/controllers/com/recordeed/account/SpringSecurityOAuthController.groovy">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="134" column="86" selection-start="5905" selection-end="5905" vertical-scroll-proportion="0.36324787">
+              <folding>
+                <element signature="e#646#698#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -172,9 +179,9 @@
         <option value="$PROJECT_DIR$/grails-app/views/login/auth.gsp" />
         <option value="$PROJECT_DIR$/grails-app/views/springSecurityOAuth/askToLinkOrCreateAccount.gsp" />
         <option value="$PROJECT_DIR$/grails-app/domain/com/hida/recordeed/SelectedDeed.groovy" />
-        <option value="$PROJECT_DIR$/grails-app/controllers/com/recordeed/account/SpringSecurityOAuthController.groovy" />
         <option value="$PROJECT_DIR$/grails-app/services/com/hida/recordeed/UserService.groovy" />
         <option value="$PROJECT_DIR$/grails-app/conf/BootStrap.groovy" />
+        <option value="$PROJECT_DIR$/grails-app/controllers/com/recordeed/account/SpringSecurityOAuthController.groovy" />
       </list>
     </option>
   </component>
@@ -827,15 +834,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/controllers/com/recordeed/account/SpringSecurityOAuthController.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="134" column="45" selection-start="5864" selection-end="5864" vertical-scroll-proportion="-9.391304">
-          <folding>
-            <element signature="e#646#698#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/grails-app/services/com/hida/recordeed/DeedService.groovy">
       <provider selected="true" editor-type-id="text-editor">
         <state line="2" column="6" selection-start="34" selection-end="34" vertical-scroll-proportion="0.061349694">
@@ -899,9 +897,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/grails-app/conf/BootStrap.groovy">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="64" selection-start="1397" selection-end="1397" vertical-scroll-proportion="0.8093525">
+        <state line="32" column="33" selection-start="1502" selection-end="1502" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="e#0#30#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/controllers/com/recordeed/account/SpringSecurityOAuthController.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="134" column="86" selection-start="5905" selection-end="5905" vertical-scroll-proportion="0.36324787">
+          <folding>
+            <element signature="e#646#698#0" expanded="true" />
           </folding>
         </state>
       </provider>

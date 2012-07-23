@@ -34,8 +34,8 @@ class BootStrap {
             }
         }
 
-        User test = userService.createUserWithRole("test","test", "ROLE_USER")
-        userService.setupDeedPackages(test)
+//        User test = userService.createUserWithRole("test","test", "ROLE_USER")
+//        userService.setupDeedPackages(test)
 
     }
     def destroy = {

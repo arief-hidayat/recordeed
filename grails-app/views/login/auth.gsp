@@ -18,10 +18,10 @@
         </div>
         <div class="ui-grid-a">
             <div class="ui-block-a">
-                <a href="/recordeed/oauth/facebook/authenticate" rel="external" provider="facebook" data-role="button"  data-theme="b"  id="facebook-connect-link">Facebook</a>
+                <a href="/oauth/facebook/authenticate" rel="external" provider="facebook" data-role="button"  data-theme="b"  id="facebook-connect-link">Facebook</a>
             </div>
             <div class="ui-block-b">
-                <a href="/recordeed/oauth/twitter/authenticate" rel="external" provider="twitter" data-role="button" data-theme="b"  id="twitter-connect-link">Twitter</a>
+                <a href="/oauth/twitter/authenticate" rel="external" provider="twitter" data-role="button" data-theme="b"  id="twitter-connect-link">Twitter</a>
             </div>
         </div>
     </div>

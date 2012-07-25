@@ -127,20 +127,31 @@ grails.gorm.default.mapping = {
 }
 grails.gorm.default.failOnError = true
 
+//To change the run-app port, edit grails-app/conf/BuildConfig.groovy and add the line
+//grails.server.port.http = 80
+//To remove the context (the 'myApp' part) edit application.properties and add the line
+//app.context=/
+//TODO: change fb app and twitter app to remove 'recordeed'.
+grails.app.context= "/"
+environments {
+    production {
+        grails.app.rootUrl= "http://www.recordeed.com"
+    }
+}
 oauth {
     providers {
         twitter {
             api = TwitterApi
-            successUri = "http://127.0.0.1:8080/recordeed/oauth/twitter/success"
+            successUri = "${grails.app.rootUrl ?: 'http://127.0.0.1:8080'}/oauth/twitter/success"
             failureUri = "/unauthorized"
-            callback = "http://127.0.0.1:8080/recordeed/oauth/twitter/callback"
+            callback = "${grails.app.rootUrl ?: 'http://127.0.0.1:8080'}/oauth/twitter/callback"
         }
 
         facebook {
             api = FacebookApi
-            successUri = "http://localhost:8080/recordeed/oauth/facebook/success"
+            successUri = "${grails.app.rootUrl ?: 'http://localhost:8080'}/oauth/facebook/success"
             failureUri = "/unauthorized"
-            callback = "http://localhost:8080/recordeed/oauth/facebook/callback"
+            callback = "${grails.app.rootUrl ?: 'http://localhost:8080'}/oauth/facebook/callback"
         }
 
     }
